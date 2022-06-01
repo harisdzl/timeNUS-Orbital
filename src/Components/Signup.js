@@ -8,13 +8,15 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [course, setCourse] = useState("");
   const { signUp } = useUserAuth();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await signUp(email, password);
+      await signUp(email, password, username, course);
       navigate("/");
     } catch(err) {
       setError(err.message);
@@ -40,6 +42,22 @@ const Signup = () => {
                   type="password"
                   placeholder="Password"
                   onChange={ (e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicUsername">
+                <Form.Control
+                  type="Username"
+                  placeholder="Username"
+                  onChange={ (e) => setUsername(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicCourse">
+                <Form.Control
+                  type="Course"
+                  placeholder="Course"
+                  onChange={ (e) => setCourse(e.target.value)}
                 />
               </Form.Group>
     
