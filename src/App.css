@@ -1,18 +1,3 @@
-body {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  align-items: center;
-  height: 100vh;
-  font-family: "Inter", sans-serif;
-}
-.box {
-  border: 1px solid #dfdfdf;
-  background-color: #d9d9d9;
-}
-
 .g-btn {
   width: 100% !important;
   height: 40px !important;
@@ -25,42 +10,7 @@ body {
   height: 38px !important;
 }
 
-.nav {
-  background-color: #d9d9d9;
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 2rem;
-  padding: 0 1rem;
-  position: fixed;
-  top: 0;
-  background-size: auto;
-}
 
-.nav ul{
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
 
-.nav a {
-  color: inherit;
-  text-decoration: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: .25rem;
-}
-
-.nav li.active {
-  background-color: #555;
-}
-
-.nav li:hover {
-  background-color: #777;
-}
 
 

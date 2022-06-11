@@ -4,6 +4,8 @@ import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../Context/UserAuthContext";
+import CenteredContainer from "./CenteredContainer";
+
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -32,8 +34,8 @@ const Login = () => {
         }
     }
     return (
-        <>
-        <img src="/images/timenus-cropped-logo.png" alt="timeNUS logo"/>
+      <CenteredContainer>
+        <img src="/images/timenus-cropped-logo.png" alt="timeNUS logo" width="400" />
           <div className="p-4 box">
             <h2 className="mb-3">Log In</h2>
             {error && <Alert variant="danger"> { error } </Alert>}
@@ -63,12 +65,12 @@ const Login = () => {
             <hr />
           </div>
           <div>
-              <GoogleButton className='g-btn' type="light" onClick={ handleGoogleSignIn }/>
+              <GoogleButton className="g-btn" type="light" onClick={ handleGoogleSignIn }/>
           </div>
           <div className="p-4 box mt-3 text-center">
             Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
-        </>
+       </CenteredContainer>
       );
     };
 

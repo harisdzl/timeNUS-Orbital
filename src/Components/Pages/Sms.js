@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Navbar from '../Navbar/Navbar';
 
 const SMS = () => {
   return (
     <>
-    <Navbar> </Navbar>
-    <div>SMS</div>
+      <Navbar />
+      <h1>SMS</h1>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert} from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../Context/UserAuthContext";
+import CenteredContainer from "./CenteredContainer";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -23,8 +24,8 @@ const Signup = () => {
     }
   };
     return (
-        <>
-        <img src="/images/timenus-cropped-logo.png" alt="timeNUS logo"/>
+        <CenteredContainer>
+        <img src="/images/timenus-cropped-logo.png" alt="timeNUS logo" width="400" />
           <div className="p-4 box">
             <h2 className="mb-3">Sign Up</h2>
             {error && <Alert variant="danger">{ error }</Alert>}
@@ -68,11 +69,12 @@ const Signup = () => {
               </div>
             </Form>
             <hr />
+              <div className="p-4 box mt-3 text-center">
+                Already have an account? <Link to="/">Log In</Link>
+              </div>
           </div>
-          <div className="p-4 box mt-3 text-center">
-            Already have an account? <Link to="/">Log In</Link>
-          </div>
-        </>
+
+        </CenteredContainer>
       );
     };
 
