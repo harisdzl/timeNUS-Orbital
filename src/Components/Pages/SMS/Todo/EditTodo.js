@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect } from 'react';
 import { TodoContext } from '../../../../Context/TodoContext';
-import TodoForm from './TodoForm';
+import EditTodoForm from './EditTodoForm';
 import { db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, deleteDoc, getDocs, where, updateDoc} from 'firebase/firestore';
 import { weekday } from '../Constants';
@@ -14,7 +14,8 @@ const EditTodo = () => {
     const [day, setDay] = useState(new Date());
     const [time, setTime] = useState(new Date());
     const [todoProject, setTodoProject] = useState('');
-    
+    const [showModal, setShowModal] = useState(false);
+
     const convertToTimeFormat= (hours, mins) => {
         if (mins < 10) {
             return (`${hours}:0${mins}`);
@@ -29,33 +30,31 @@ const EditTodo = () => {
         return (`${hours}:${mins}`); 
     }
     //CONTEXT
+    
     useEffect( () => {
         if (todo) {
             setText(todo.text);
-            setDay(todo.date);
-            setTime(todo.time);
             setTodoProject(todo.projectName);
         }
     }, [todo])
-    /*
-    useEffect( () => {
-        if (todo) {
-            const collectionRef = collection(db, 'todos');
-            const todoDoc = doc(collectionRef, todo.id);
-            updateDoc(todoDoc, {
-                text,
-                date : day.toDateString, 
-                day: weekday[day.getDay], 
-                time : convertToTimeFormat(time.getHours, time.getMinutes),
-                projectName : todoProject
-            });
-        }
-    }, [text, day, time, todoProject])
-    */
+    
 
     const handleSubmit = (e) => {
-        
+        e.preventDefault();
+            const collectionRef = collection(db, 'todos');
+            const todoDoc = doc(collectionRef, todo.id)
+            const payload = {
+                text,
+                date : day.toDateString(), 
+                day: weekday[day.getDay()], 
+                time : convertToTimeFormat(time.getHours(), time.getMinutes()),
+                projectName : todoProject
+            }
+            updateDoc(todoDoc, payload);
+
     }
+    
+
   return (
       <div>
         {
@@ -65,7 +64,7 @@ const EditTodo = () => {
             Edit Todo
         </div>
         <div className='container'>
-            <TodoForm 
+            <EditTodoForm
                     handleSubmit={handleSubmit}
                     text = {text}
                     setText = {setText}
@@ -76,6 +75,7 @@ const EditTodo = () => {
                     todoProject = {todoProject}
                     setTodoProject = {setTodoProject}
                     projects = {projects}
+                    showButtons = {true}
                 />
         </div>
         </div>

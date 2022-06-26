@@ -5,23 +5,20 @@ import ProjectForm from './ProjectForm';
 import { db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, where, getDocs, getDoc } from 'firebase/firestore';
 
-
 const AddNewProject = () => {
     const [showModal, setShowModal] = useState(false);
-    const [projectName, setProjectName] = useState('');
-    
+    const [projectName, setProjectName] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault();
         if ( projectName ) {
             const projectRef = collection(db, 'projects');
             // const q = query(collection(db, 'projects'), where('name', '==', projectName));
             // have not handle duplicates
-            addDoc(projectRef, { name : projectName });
+            addDoc(projectRef, { name : projectName});
             setShowModal(false);
             setProjectName('');
         }
     }
-
   return (
     <div className='AddNewProject'>
         <div className='add-button'>

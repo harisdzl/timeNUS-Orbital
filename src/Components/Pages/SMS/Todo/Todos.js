@@ -6,7 +6,7 @@ import { TodoContext } from '../../../../Context/TodoContext';
 
 const Todos = () => {
     const { todos, selectedProject } = useContext(TodoContext); 
-
+    
   return (
     <div className='Todos'>
         <div className='selected-project'>
@@ -17,8 +17,8 @@ const Todos = () => {
                 selectedProject === 'next 7 days' ?
                 <Next7Days todos={todos} />
                 :
-                todos.map( todo => 
-                    <TodoComponent todo={todo} key={todo.id} />)
+                todos.map( (todo) => 
+                    (<TodoComponent todo={todo} key={todo.id} />))
             }
         </div>
     </div>

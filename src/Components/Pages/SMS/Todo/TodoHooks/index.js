@@ -26,6 +26,7 @@ export const useTodos = () => {
     return todos;
 }
 
+
 export function useFilterTodos(todos, selectedProject) {
     const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -80,7 +81,7 @@ export const useProjectsWithStats = (projects, todos) => {
             }
         })
         setProjectsWithStats(data)
-    }, [projects, todos])
+    }, [todos, projects])
 
     return projectsWithStats; 
 }

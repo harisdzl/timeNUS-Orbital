@@ -6,13 +6,13 @@ import { useTodos, useProjects, useFilterTodos, useProjectsWithStats } from '../
 const TodoContext = createContext();
 
 const TodoContextProvider = ({ children }) => {
-    const defaultProject = 'all days'
+    const defaultProject = 'today'
     const [selectedProject, setSelectedProject] = useState(defaultProject);
     const [selectedTodo, setSelectedTodo] = useState(undefined)
     const todos = useTodos();
     const projects = useProjects();
     const projectsWithStats = useProjectsWithStats(projects, todos)
-    const filteredTodos = useFilterTodos(todos, selectedProject);
+    // const filteredTodos = useFilterTodos(todos, selectedProject);
     return (
         <TodoContext.Provider 
             value = {
@@ -20,7 +20,7 @@ const TodoContextProvider = ({ children }) => {
                     defaultProject,
                     selectedProject,
                     setSelectedProject,
-                    todos : filteredTodos,
+                    todos,
                     projects : projectsWithStats,
                     selectedTodo, 
                     setSelectedTodo

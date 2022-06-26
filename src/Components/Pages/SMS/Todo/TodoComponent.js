@@ -55,7 +55,7 @@ const TodoComponent = ({todo}) => {
             </div>
             <div className='text' onClick={() => setSelectedTodo(todo)}>
                 <p style={{color : todo.checked ? '#bebebe' : '#000000'}}>{todo.text}</p>
-                <span>({todo.date}) {todo.time} - {todo.projectName}</span>
+                <span>({todo.date.toString()}) : {todo.time.toString()} - {todo.projectName}</span>
                 <div className={`line ${todo.checked ? 'line-through' : ''}`}></div>
             </div>
             <div className='add-to-next-day'>
