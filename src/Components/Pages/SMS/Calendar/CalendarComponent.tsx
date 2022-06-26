@@ -6,6 +6,9 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection } from 'firebase/firestore';
+import Modal from '../Todo/Modal';
+import TodoForm from '../Todo/TodoForm';
+import '../../styles.css';
 
 
 interface VisibleDates {
@@ -14,7 +17,8 @@ interface VisibleDates {
 }
 
 const CalendarComponent = () => {
-
+  
+  const [showModal, setShowModal] = useState(false);
   const [data, setData] = useState<any[]>([]);
   
   const [range, setRange] = useState<VisibleDates>({
@@ -58,24 +62,29 @@ const CalendarComponent = () => {
 
 
   
-  return <>
-      <FullCalendar
-      plugins={[dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin]} 
-      dateClick={handleDateClick}
-      initialView="dayGridMonth"
-      events={data} 
-      customButtons={{
-        new: {
-          text: 'new',
-          click: () => console.log('new event'),
-        },
-      }}
-      headerToolbar={{
-        center: 'list',
-      }}
+  return (
+    <div className='FullCalendar'>
+      <div className='calendar'>
+        <FullCalendar
+        plugins={[dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin]} 
+        dateClick={handleDateClick}
+        initialView="dayGridMonth"
+        events={data} 
+        customButtons={{
+          new: {
+            text: 'new',
+            click: () => console.log('new event'),
+          },
+        }}
+        headerToolbar={{
+          center: 'dayGridMonth,timeGridWeek,timeGridDay listDay',
+        }}
+        />
+      </div>
 
-      />
-    </>
+    </div>
+
+  )
 
   
 }

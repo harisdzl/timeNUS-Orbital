@@ -1,5 +1,4 @@
 import React from 'react';
-import { Calendar } from 'react-calendar';
 import Navbar from '../../Navbar/Navbar';
 import AddNewTodo from './Todo/AddNewTodo';
 import Main from './Todo/Main';
@@ -9,25 +8,27 @@ import Todos from './Todo/Todos'
 import EditTodo from './Todo/EditTodo'
 import Sidebar from './Todo/Sidebar';
 import '../../../App.css';
+import { TodoContextProvider } from '../../../Context/TodoContext';
+
 
 const Todo = () => {
   return (
-    <>
-      <Navbar />
-      <div className="Todo">
-        <Sidebar>
-          <AddNewTodo />
-          <CalendarTodo />
-          <Projects />
-        </Sidebar>
-        <Main>
-          <Todos />
-          <EditTodo /> 
-        </Main>
-    </div>    
-    
-    </>
-
+    <TodoContextProvider>
+      <div>
+        <Navbar />
+        <div className='Todo'>
+          <Sidebar>
+            <AddNewTodo />
+            <CalendarTodo />
+            <Projects />
+          </Sidebar>
+          <Main>
+            <Todos />
+            <EditTodo /> 
+          </Main>
+        </div>    
+      </div>
+    </TodoContextProvider>
 
   )
 }

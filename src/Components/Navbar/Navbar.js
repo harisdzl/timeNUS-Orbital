@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Button, Nav, Navbar, NavDropdown, Container } from "react-bootstrap";
 import { useUserAuth } from "../../Context/UserAuthContext";
 import { Link } from "react-router-dom";
-
+//import "../Pages/styles.css";
 
 
 const NavbarComponent = () => {
@@ -15,53 +15,43 @@ const NavbarComponent = () => {
         }
     };
     return (
-        <>
-            <Navbar bg="light" variant="light" expand="lg">
-                <Navbar.Brand as={Link} to="/home">
-                    <img src="/images/timenus-logo.png" height="50" width="50" alt="timeNUS logo"/>
-                </Navbar.Brand>
+        <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg" sticky="top" >
+                    
+            <Navbar.Brand as={Link} to="/home" className="d-grid p-2">
+                <h1>
+                    timeNUS
+
+                </h1>
+                
+            </Navbar.Brand>
+
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                </Nav>
-                <Nav>
-                    <Nav.Link as={Link} to="/Sms">
-                        SMS
-                    </Nav.Link>
-                    <Nav.Link as={Link} to="/Pms">
-                        PMS
-                    </Nav.Link>
-                    <div className="d-grid gap-2">
-                        <Button variant = "primary" onClick={ handleLogOut }>Log Out</Button>
-                    </div>
-                </Nav>
-            </Navbar>        
-        </>
+                    <NavDropdown title="SMS" style={{ fontSize: `130%` }} id="style.sms-dropdown" className="d-grid m-1 p-2">
+                        <NavDropdown.Item 
+                            as={Link} to="/Sms/Calendar"> 
+                            Calendar 
+                        </NavDropdown.Item>
+                        <NavDropdown.Item 
+                            as={Link} to="/Sms/Todo"> 
+                            To-do 
+                            </NavDropdown.Item>
+                    </NavDropdown>
 
+                    <Nav className="d-grid m-1 p-2">
+                        <Nav.Link as={Link} to="/Pms" style={{ fontSize: `130%` }}>PMS</Nav.Link>
+                    </Nav>
+                </Nav>
+
+                <Nav className="d-grid m-2 p-2">
+                    <Button variant = "outline-secondary" onClick={ handleLogOut } >Log Out </Button>
+                </Nav>            
+            </Navbar.Collapse>
+            
+        </Navbar>        
     )
 }
-
-/*
-const Navbar = () => {
-
-
-    return (
-        <nav className="nav">
-            <Link to="/home" className="site-title">         
-                <img src="/images/timenus-logo.png" height="75" width="75" alt="timeNUS logo"/>
-            </Link>
-            <ul>
-                <li>
-                    <Link to="/sms">SMS</Link>
-                </li>
-                <li>
-                    <Link to="/pms">PMS</Link>
-                </li>
-            </ul>
-            <div className="d-grid gap-2">
-                <Button variant = "primary" onClick={ handleLogOut }>Log Out</Button>
-            </div>
-        </nav>
-    )
-}
-*/
 
 export default NavbarComponent;

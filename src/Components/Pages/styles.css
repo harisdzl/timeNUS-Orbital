@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img {
+    max-width: 100%;
+
+}
+
+.blueBg {
+    width: 1000px;
+}
+
+.main-home {
+    position:fixed;
+    background-size: cover;
+    background-position: centre;
+    min-width: 100%;
+    min-height: 100%;
+    padding:1rem;
+    background-color: #080808;
+}
+
+.FullCalendar .calendar .fc-scrollgrid {
+    background: url("/public/images/timenus-logo.png");
+    background-size: cover;
+}
+

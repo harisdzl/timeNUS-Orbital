@@ -10,7 +10,6 @@ const CenteredContainer = ({children}) => {
         <div className="w-100" style={{ maxWidth: "400px" }}>
             {children}
         </div>
-
     </Container>
   )
 }
