@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../../../../Context/TodoContext';
 import { useEffect } from 'react';
 import { calendarItems, weekday } from '../Constants';
-import { db } from '../../../../firebase';
+import { auth, db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp } from 'firebase/firestore';
 import randomColor from 'randomcolor';
 
@@ -52,13 +52,22 @@ const AddNewTodo = () => {
                 time : convertToTimeFormat(time.getHours(), time.getMinutes()),
                 checked : false,
                 color : randomColor(),
-                projectName : todoProject
+                projectName : todoProject,
+                userUID : auth.currentUser.uid
+            }
+
+            const payloadCalendar = {
+                allDay : true,
+                start : Timestamp.fromDate(day),
+                title : text,
+                userUID : auth.currentUser.uid
             }
             addDoc(collectionRef, payload);
+            addDoc(collection(db, 'calendar'), payloadCalendar); 
             setShowModal(false);
             setText('');
-            setDay(new Date())
-            setTime(new Date())
+            setDay(new Date());
+            setTime(new Date());
         }
     }
 

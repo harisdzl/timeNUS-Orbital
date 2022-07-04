@@ -56,7 +56,7 @@ const RenameProject = ({project, setShowModal}) => {
     <div className='RenameProject'>            
       <ProjectForm 
         handleSubmit={handleSubmit}
-        heading='Edit project name!'
+        heading='Edit folder name!'
         value={newProjectName}
         setValue={setNewProjectName}
         setShowModal={setShowModal}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const ProjectForm = ({handleSubmit, heading, value, setValue, setShowModal, confirmButtonText}) => {
+const GroupForm = ({handleSubmit, heading, value, setValue, setShowModal, confirmButtonText}) => {
   return (
     <form onSubmit={handleSubmit} className='ProjectForm'>
         <h3>
@@ -11,7 +11,7 @@ const ProjectForm = ({handleSubmit, heading, value, setValue, setShowModal, conf
             value={value}
             onChange={(e) => setValue(e.target.value)}
             type='text'
-            placeholder='folder name...'
+            placeholder='Group name...'
             autoFocus
         />
         <button className='cancel' role='button' onClick={() => setShowModal(false)}>
@@ -24,4 +24,4 @@ const ProjectForm = ({handleSubmit, heading, value, setValue, setShowModal, conf
   )
 }
 
-export default ProjectForm; 
+export default GroupForm; 

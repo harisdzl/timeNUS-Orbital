@@ -9,6 +9,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import PMS from "./Components/Pages/PMS/Pms";
 import Calendar from "./Components/Pages/SMS/Calendar";
 import Todo from "./Components/Pages/SMS/Todo";
+import Profile from "./Components/Pages/Profile/Profile";
 import { TodoContextProvider } from "./Context/TodoContext";
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
 
         {/* App Routes */}
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-
+        {/* Profile Routes */}
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         {/* SMS Routes */}
         <Route path="/Sms/Calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
         <Route path="/Sms/Todo" element={<ProtectedRoute><Todo /></ProtectedRoute>} />

@@ -7,7 +7,7 @@ import Projects from './Todo/Projects';
 import Todos from './Todo/Todos'
 import EditTodo from './Todo/EditTodo'
 import Sidebar from './Todo/Sidebar';
-import '../../../App.css';
+import './Todo/styles.css';
 import { TodoContextProvider } from '../../../Context/TodoContext';
 
 

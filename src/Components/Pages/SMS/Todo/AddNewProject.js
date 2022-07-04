@@ -2,7 +2,7 @@ import React, { useState }from 'react';
 import Modal from './Modal';
 import { Plus } from 'react-bootstrap-icons';
 import ProjectForm from './ProjectForm';
-import { db } from '../../../../firebase';
+import { auth, db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, where, getDocs, getDoc } from 'firebase/firestore';
 
 const AddNewProject = () => {
@@ -14,7 +14,7 @@ const AddNewProject = () => {
             const projectRef = collection(db, 'projects');
             // const q = query(collection(db, 'projects'), where('name', '==', projectName));
             // have not handle duplicates
-            addDoc(projectRef, { name : projectName});
+            addDoc(projectRef, { name : projectName, userUID : auth.currentUser.uid });
             setShowModal(false);
             setProjectName('');
         }
@@ -29,11 +29,11 @@ const AddNewProject = () => {
         <Modal showModal={showModal} setShowModal={setShowModal}>
             <ProjectForm 
                 handleSubmit={handleSubmit}
-                heading='New Project!'
+                heading='New Folder!'
                 value={projectName}
                 setValue={setProjectName}
                 setShowModal={setShowModal}
-                confirmButtonText='+ Add Project'
+                confirmButtonText='+ Add Folder'
             />
         </Modal>
 

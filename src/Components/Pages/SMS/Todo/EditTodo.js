@@ -4,6 +4,7 @@ import EditTodoForm from './EditTodoForm';
 import { db } from '../../../../firebase';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, deleteDoc, getDocs, where, updateDoc} from 'firebase/firestore';
 import { weekday } from '../Constants';
+import { update } from 'react-spring';
 
 
 const EditTodo = () => {
@@ -51,7 +52,6 @@ const EditTodo = () => {
                 projectName : todoProject
             }
             updateDoc(todoDoc, payload);
-
     }
     
 

@@ -23,11 +23,47 @@ img {
     min-width: 100%;
     min-height: 100%;
     padding:1rem;
-    background-color: #080808;
+
+}
+
+.summary-home {
+    height: 50%;
+    position: bottom; 
 }
 
 .FullCalendar .calendar .fc-scrollgrid {
     background: url("/public/images/timenus-logo.png");
-    background-size: cover;
+    background-size:cover;
 }
+
+.featured{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.featuredItem{
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.featuredTitle{
+    font-size: 20px;
+}
+
+.featuredQuantity{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.featuredRate{
+    font-size: 15px;
+}
+
+
+
+
 

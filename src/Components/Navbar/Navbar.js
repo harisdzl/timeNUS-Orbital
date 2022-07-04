@@ -15,7 +15,7 @@ const NavbarComponent = () => {
         }
     };
     return (
-        <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg" sticky="top" >
+        <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm" sticky="top" >
                     
             <Navbar.Brand as={Link} to="/home" className="d-grid p-2">
                 <h1>
@@ -44,7 +44,9 @@ const NavbarComponent = () => {
                         <Nav.Link as={Link} to="/Pms" style={{ fontSize: `130%` }}>PMS</Nav.Link>
                     </Nav>
                 </Nav>
-
+                <Nav className="d-grid m-1 p-2">
+                        <Nav.Link as={Link} to="/Profile" style={{ fontSize: `130%` }}>Profile</Nav.Link>
+                    </Nav>
                 <Nav className="d-grid m-2 p-2">
                     <Button variant = "outline-secondary" onClick={ handleLogOut } >Log Out </Button>
                 </Nav>            

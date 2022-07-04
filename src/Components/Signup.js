@@ -4,6 +4,9 @@ import { Form, Alert} from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../Context/UserAuthContext";
 import CenteredContainer from "./CenteredContainer";
+import { db, auth } from '../firebase';
+import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, deleteDoc, getDocs, where, updateDoc} from 'firebase/firestore';
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +21,15 @@ const Signup = () => {
     setError("");
     try {
       await signUp(email, password, username, course);
+
+      const collectionRef = collection(db, 'users');
+      const payload = {
+        uID : auth.currentUser.uid,
+        email : email, 
+        username : username, 
+        course : course
+      }
+      addDoc(collectionRef, payload);
       navigate("/");
     } catch(err) {
       setError(err.message);

@@ -71,4 +71,4 @@ const Project = ({project, edit}) => {
     )
 }
 
-export default Project
+export default Project;
