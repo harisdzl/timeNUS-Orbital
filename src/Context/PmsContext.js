@@ -1,12 +1,17 @@
 import React, {createContext} from 'react'
 import { useState } from 'react';
-import { useGroups } from '../Components/Pages/PMS/PmsHooks';
+import { useAgenda, useFilteredGroups, useGroups, useLinks } from '../Components/Pages/PMS/PmsHooks';
 
 const PmsContext = createContext();
 
 const PmsContextProvider = ({ children }) => {
-    const [selectedGroup, setSelectedGroup] = useState(undefined);
+    const [selectedGroup, setSelectedGroup] = useState('');
+    const [selectedGroupName, setSelectedGroupName] = useState('');
+    const [selectedGroupId, setSelectedGroupId] = useState('')
+
     const groups = useGroups();
+    const links = useLinks(selectedGroup);
+    const agendas = useAgenda(selectedGroup);
 
     return (
         <PmsContext.Provider
@@ -14,7 +19,14 @@ const PmsContextProvider = ({ children }) => {
                 {
                     selectedGroup,
                     setSelectedGroup,
-                    groups
+                    selectedGroupName,
+                    setSelectedGroupName,
+                    selectedGroupId,
+                    setSelectedGroupId,
+                    groups,
+                    links,
+                    agendas
+                
                 }
             }
         >

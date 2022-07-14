@@ -13,7 +13,7 @@ import CreateNewGroup from './CreateNewGroup';
 import JoinGroup from './JoinGroup';
 import { PmsContextProvider } from '../../../Context/PmsContext';
 
-const PMS = () => {
+const PMSHome = () => {
   return (
     <PmsContextProvider>
       <div>
@@ -26,13 +26,13 @@ const PMS = () => {
           <Groups />
         </Sidebar>
         <Main>
+          <Agenda />
           <ProjectFiles />
           <ProjectLinks />
-          <Agenda />
         </Main>
       </div>    
     </PmsContextProvider>
   );
 }
 
-export default PMS;
+export default PMSHome;

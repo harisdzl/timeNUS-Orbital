@@ -1,5 +1,5 @@
 import React from 'react';
-import { CaretUp, PeopleFill, PencilFill } from 'react-bootstrap-icons';
+import { CaretUp, PeopleFill, PencilFill, GearFill, PersonPlus} from 'react-bootstrap-icons';
 import { useContext, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { PmsContext } from '../../../Context/PmsContext';
@@ -9,10 +9,10 @@ const Groups = () => {
 
   const [showMenu, setShowMenu] = useState(true);
   const [edit, setEdit] = useState(false); 
-  const pencilColor = edit ? "#1EC94C" : "#000000";
+  const gearColour = edit ? "#1EC94C" : "#000000";
 
   //CONTEXT
-  const { groups } = useContext(PmsContext)
+  const { groups, filteredGroups } = useContext(PmsContext)
 
   //ANIMATION
   const spin = useSpring({
@@ -36,7 +36,7 @@ const Groups = () => {
                 { showMenu 
                     && groups.length > 0 &&
                     <span className='edit' onClick={() => setEdit(edit => !edit)}>
-                        <PencilFill size='15' color={pencilColor}/>
+                        <GearFill size='15' color={gearColour}/>
                     </span>
                 }
 

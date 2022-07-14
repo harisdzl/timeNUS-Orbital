@@ -3,6 +3,7 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolder, faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 import db from '../../../firebase';
+import { addDoc, onSnapshot } from 'firebase/firestore';
 
 const AddFolderButton = () => {
     const [open, setOpen] = useState(false);
@@ -14,14 +15,17 @@ const AddFolderButton = () => {
     const closeModal = () => {
         setOpen(false);
     }
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Create a folder in the database
-
-        db.folders.add({
-            name: name,
+        /*
+        // Adding a folder
+        const folderRef = collection(db, 'folders');
+        const groupDoc = doc(folderRef);
+        addDoc(groupDoc, {
+        
         })
+        */
         setName("")
         closeModal()
     }

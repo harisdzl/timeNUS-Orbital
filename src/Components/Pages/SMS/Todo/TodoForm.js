@@ -1,11 +1,12 @@
 import React from 'react';
 import Modal from './Modal';
-import { Bell, CalendarDay, Clock, Palette, X} from 'react-bootstrap-icons';
+import { Bell, CalendarDay, Clock, Palette, X, Check} from 'react-bootstrap-icons';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { Button } from 'react-bootstrap';
 
 
 const TodoForm = (
@@ -42,6 +43,7 @@ const TodoForm = (
                 <Bell/>
                 <p>Remind me!</p>
             </div>
+
             <div className='pick-day'>
                 <div className='title'>
                     <CalendarDay />

@@ -15,7 +15,7 @@
   
 /* Sidebar */
 .Sidebar-pms {
-    width: 300px;
+    width: 250px;
     min-width: 210px;
     height: 100%;
 }
@@ -31,51 +31,125 @@
     padding: 1rem;
 }
 
+.Main-pms .heading {
+    margin: 0.2rem 1rem 1rem 0rem;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
 
-/* ProjectFiles */ 
-.ProjectFiles {
-    width: 450px;
-    height: 90%;
+
+/* Agenda */ 
+.Agenda {
+    width: 350px;
+    height: 85%;
     background-color: white;
     position: absolute;
-    bottom: 40px; 
+    bottom: 60px; 
     left: 60px;
     border-radius: 4px;
     border: 2px solid black;
     opacity: 0.9;
   
-    padding: 0 0.5rem 0.5rem 0.5rem; 
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    scroll-behavior: smooth;
+    overflow: scroll;
 }
+
+.Agenda .title {
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.EditAgenda .edit-btn {
+    position: absolute;
+    justify-content: center;
+    top: 5px;
+    right: 0px;
+    margin-right: 10px;
+}
+
+.Agenda .textbox {
+    margin: 1rem;
+}
+
+/* ProjectFiles */
+.ProjectFiles {
+    width: 350px;
+    height: 85%;
+    background-color: white;
+  
+    position: absolute;
+    bottom: 60px; 
+    left: calc(60px + 350px + 60px);
+    border-radius: 4px;
+    border: 2px solid black;
+    opacity: 0.9;
+  
+    padding: 0 0.5rem 0.5rem 0.5rem; 
+    scroll-behavior: smooth;
+    overflow: scroll;
+}
+
+.ProjectFiles .title {
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.ProjectFiles .upload-btn {
+    position: absolute;
+    justify-content: center;
+    top: 5px;
+    right: 0px;
+    margin-right: 10px;
+}
+
+
 
 /* ProjectLinks */
 .ProjectLinks {
-    width: 450px;
-    height: 90%;
+    width: 350px;
+    height: 85%;
     background-color: white;
-  
     position: absolute;
-    bottom: 40px; 
-    left: calc(60px + 450px + 60px);
+    bottom: 60px; 
+    left: calc(60px + 350px + 60px + 350px + 60px);
     border-radius: 4px;
     border: 2px solid black;
     opacity: 0.9;
-  
     padding: 0 0.5rem 0.5rem 0.5rem; 
+    scroll-behavior: smooth;
+    overflow: scroll;
 }
 
-/* Agenda */
-.Agenda {
-    width: 450px;
-    height: 90%;
-    background-color: white;
-    position: absolute;
-    bottom: 40px; 
-    left: calc(60px + 450px + 60px + 450px + 60px);
-    border-radius: 4px;
-    border: 2px solid black;
-    opacity: 0.9;
-    padding: 0 0.5rem 0.5rem 0.5rem; 
+.ProjectLinks .title {
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eeeeee;
 }
+
+
+/* AddProjectLink */
+.AddProjectLink .add-btn {
+    position: absolute;
+    justify-content: center;
+    top: 5px;
+    right: 0px;
+    margin-right: 10px;
+}
+
 
 /* CreateNewGroup */
 .CreateNewGroup {
@@ -159,7 +233,8 @@
   }
   
   .Groups .header .btns span.edit {
-    margin-right: 5px;
+    margin-right: 3px;
+    margin-top: 2px;
   }
   .Groups .header .btns span {
     border-radius: 50%;
@@ -178,6 +253,57 @@
    
   .Groups .items {
     padding: 0.5rem;
+  }
+
+/* ProjectForm */
+.GroupForm {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    position: relative;
+    padding-bottom: 40px;
+    left: 30%;
+
+}
+  
+  .GroupForm input {
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+    border: none;
+    font-size: 1.2rem;
+  }
+  
+  .GroupForm input:focus {
+    outline: none;
+    border-bottom: 1px solid #0080ff;
+  }
+  
+  .GroupForm button {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 50%;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 300ms ease-in-out;
+  }
+  
+  .GroupForm button.cancel {
+    left: 0;
+    background-color: #bebebe;
+  }
+  
+  .GroupForm button.confirm {
+    right: 0;
+    background-color: #0080ff;
+  }
+  
+  .GroupForm button:hover {
+    filter: brightness(1.1)
   }
 
 
@@ -238,3 +364,5 @@
   .Group .btns .edit-delete span.delete:hover {
     background: #ffacac;
   }
+
+

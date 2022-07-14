@@ -6,11 +6,12 @@ import Signup from "./Components/Signup"
 import Home from "./Components/Pages/Home"
 import { UserAuthContextProvider } from "./Context/UserAuthContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import PMS from "./Components/Pages/PMS/Pms";
+import PMSHome from "./Components/Pages/PMS/PmsHome";
 import Calendar from "./Components/Pages/SMS/Calendar";
 import Todo from "./Components/Pages/SMS/Todo";
 import Profile from "./Components/Pages/Profile/Profile";
 import { TodoContextProvider } from "./Context/TodoContext";
+import { db } from "./firebase";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="/Sms/Calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
         <Route path="/Sms/Todo" element={<ProtectedRoute><Todo /></ProtectedRoute>} />
         {/* PMS Routes */}
-        <Route path="/Pms" element={<ProtectedRoute><PMS /></ProtectedRoute>} />
+        <Route path="/Pms" element={<ProtectedRoute><PMSHome/></ProtectedRoute>} />
 
         {/* Authentication Routes */}
         <Route path="/" element={<Login />} />

@@ -3,7 +3,7 @@ import React from 'react'
 
 const GroupForm = ({handleSubmit, heading, value, setValue, setShowModal, confirmButtonText}) => {
   return (
-    <form onSubmit={handleSubmit} className='ProjectForm'>
+    <form onSubmit={handleSubmit} className='GroupForm'>
         <h3>
             {heading}
         </h3>

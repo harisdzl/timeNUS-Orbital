@@ -17,7 +17,7 @@ const NavbarComponent = () => {
     return (
         <Navbar collapseOnSelect bg="dark" variant="dark" expand="sm" sticky="top" >
                     
-            <Navbar.Brand as={Link} to="/home" className="d-grid p-2">
+            <Navbar.Brand as={Link} to="/home" className="d-grid p-2 ml-3 mt-1">
                 <h1>
                     timeNUS
 

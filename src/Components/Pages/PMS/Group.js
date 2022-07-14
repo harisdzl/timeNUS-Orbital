@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext, useState} from 'react';
 import { PmsContext } from '../../../Context/PmsContext';
-import { Link, XCircle } from 'react-bootstrap-icons';
+import { PersonPlus, XCircle } from 'react-bootstrap-icons';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, where, updateDoc, arrayRemove} from 'firebase/firestore';
 
 import DisplayLink from './DisplayLink';
@@ -10,7 +10,13 @@ import { auth, db } from '../../../firebase';
 
 const Group = ({group, edit}) => {
     //CONTEXT
-    //const { defaultGroup, selectedGroup, setSelectedGroup } = useContext(PmsContext); 
+    const { 
+        selectedGroup, 
+        setSelectedGroup, 
+        selectedGroupName, 
+        setSelectedGroupName,
+        setSelectedGroupId
+    } = useContext(PmsContext); 
 
     //STATE
     //const [showModal, setShowModal] = useState(false);
@@ -38,18 +44,31 @@ const Group = ({group, edit}) => {
         setCopySuccess(true);
     }
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        setSelectedGroup(group.groupId);
+        setSelectedGroupName(group.name);
+        setSelectedGroupId(group.id);
+
+    }
+
 
     const deleteGroup = () => {
         const groupRef = collection(db, 'groups');
         const groupDoc = doc(groupRef, group.id);
         updateDoc(groupDoc, {
             users : arrayRemove(auth.currentUser.uid)
-        });
+        }).then(() => {
+            setSelectedGroup('');
+            setSelectedGroupName('');
+        })
+        
     }
     return (
         <div className='Group'>
             <div
                 className="name"
+                onClick={handleClick}
             >
                 {group.name}
             </div>
@@ -62,7 +81,7 @@ const Group = ({group, edit}) => {
                             className="edit"
                             onClick={ openModal }
                         >
-                            <Link size="18" />
+                            <PersonPlus size="18" />
                         </span>
                         <span className="delete" onClick={() => deleteGroup(group)}>
                             <XCircle size="13" />

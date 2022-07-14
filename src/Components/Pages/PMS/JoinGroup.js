@@ -13,6 +13,7 @@ const JoinGroup = () => {
         e.preventDefault();
         
         if ( groupId ) {
+            // groups
             const groupRef = collection(db, 'groups');
             const groupQuery = query(groupRef, where("groupId", "==", groupId));
             getDocs(groupQuery).then((querySnapshot) => {
@@ -22,7 +23,7 @@ const JoinGroup = () => {
                     })
                 })
             })
-            
+    
             setShowModal(false);
             setGroupId('');
         }

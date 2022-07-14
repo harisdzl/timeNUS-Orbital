@@ -75,9 +75,11 @@
   /* AddNewTodo form */
   .TodoForm {
     padding: 1rem 1rem calc(1rem + 40px) 1rem;
-    width: 103%;
+    position: relative; 
     background: white;
     border-radius: 4px;
+    width: 450px;
+    right: 10%;
   }
   .TodoForm .text input {
     padding: 1rem;
@@ -137,12 +139,12 @@
   .TodoForm .confirm {
     position: absolute;
     bottom: 0;
-    left: 0;
+    height: 40px;
     width: 100%;
+    right: 0.4px; 
   }
   .TodoForm .confirm button {
-    margin-left: 0.7rem;
-    width: 95.3%;
+    width: 100%;
     height: 40px;
     background: #0080ff;
     color: white;
@@ -323,6 +325,7 @@
     border-radius: 4px;
     position: relative;
     padding-bottom: 40px;
+    left: 30%;
   }
   
   .ProjectForm input {
@@ -378,6 +381,9 @@
     opacity: 0.9;
   
     padding: 0 0.5rem 0.5rem 0.5rem; 
+
+    scroll-behavior: smooth;
+    overflow: scroll;
   }
   
   .Todos .selected-project {
@@ -395,15 +401,18 @@
   /* TodosComponent */
   .TodoComponent {
     padding: 0.5rem 1rem;
+    
   }
   
   .TodoComponent .todo-container {
     display: flex;
     align-items: center;
+    
   }
   
   .TodoComponent .todo-container span {
     cursor: pointer;
+    
   }
   
   .TodoComponent .todo-container .text {
