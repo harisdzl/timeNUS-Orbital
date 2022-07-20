@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { auth, db } from '../../../../firebase';
+import { auth, db, storage } from '../../../../firebase';
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, where} from 'firebase/firestore';
+import { getDownloadURL, listAll, ref } from 'firebase/storage';
 
 export const useGroups = () => {
     const [groups, setGroups] = useState([]);
@@ -78,4 +79,26 @@ export const useAgenda = (selectedGroup) => {
     return agendas;
 }
 
+
+export const useFiles = (selectedGroup) => {
+    const [files, setFiles] = useState([]);
+
+    useEffect(() => {
+        const filesQuery = query(collection(db, 'files'), where("groupId", "==", selectedGroup));
+        let unsubscribe = onSnapshot(filesQuery, (snapshot) => {
+            const data = snapshot.docs.map( (doc) => {
+                return {
+                    id : doc.id,
+                    groupId : doc.get('groupId'),
+                    name : doc.get('name'),
+                    url : doc.get('url')
+                }
+            })
+            setFiles(data)
+        })
+        return () => unsubscribe();
+    }, [selectedGroup])
+
+    return files;
+}
 

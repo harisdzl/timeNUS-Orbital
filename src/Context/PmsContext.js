@@ -1,6 +1,6 @@
 import React, {createContext} from 'react'
 import { useState } from 'react';
-import { useAgenda, useFilteredGroups, useGroups, useLinks } from '../Components/Pages/PMS/PmsHooks';
+import { useAgenda, useFiles, useFilteredGroups, useGroups, useLinks } from '../Components/Pages/PMS/PmsHooks';
 
 const PmsContext = createContext();
 
@@ -12,7 +12,7 @@ const PmsContextProvider = ({ children }) => {
     const groups = useGroups();
     const links = useLinks(selectedGroup);
     const agendas = useAgenda(selectedGroup);
-
+    const files = useFiles(selectedGroup);
     return (
         <PmsContext.Provider
             value = {
@@ -25,7 +25,8 @@ const PmsContextProvider = ({ children }) => {
                     setSelectedGroupId,
                     groups,
                     links,
-                    agendas
+                    agendas,
+                    files
                 
                 }
             }

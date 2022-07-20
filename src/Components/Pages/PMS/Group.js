@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext, useState} from 'react';
 import { PmsContext } from '../../../Context/PmsContext';
 import { PersonPlus, XCircle } from 'react-bootstrap-icons';
-import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, where, updateDoc, arrayRemove} from 'firebase/firestore';
+import { query, onSnapshot, addDoc, orderBy, startAt, endAt, collection, doc, setDoc, Timestamp, where, updateDoc, arrayRemove, deleteDoc} from 'firebase/firestore';
 
 import DisplayLink from './DisplayLink';
 import { Modal, Form, Button, Alert } from 'react-bootstrap';
@@ -62,6 +62,10 @@ const Group = ({group, edit}) => {
             setSelectedGroup('');
             setSelectedGroupName('');
         })
+
+        if (group.users.length === 0) {
+            deleteDoc(groupDoc);
+        }
         
     }
     return (
