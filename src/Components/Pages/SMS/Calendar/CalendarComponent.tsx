@@ -95,7 +95,7 @@ const CalendarComponent = () => {
           center : 'title'
         }}
         handleWindowResize={true}
-        contentHeight={800}
+        contentHeight={675}
         aspectRatio={2}
         />
       </div>

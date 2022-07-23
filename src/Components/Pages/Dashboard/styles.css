@@ -1,0 +1,81 @@
+.main-home {
+    background: url("../../../../public/images/timenus-logo.png");
+    background-position: center;
+}
+.AddModuleButton {
+    position : absolute; 
+    left : 15px; 
+    top : 30px;
+}
+
+.ModuleSummary {
+    width: 1372px;
+    height: 40%;
+    background-color: white;
+    position: absolute;
+    top : 30px;
+    left : 70px; 
+    border: 2px solid black;
+    padding : 0.5;
+    opacity: 0.9;
+}
+
+
+
+.NumTodo {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    left : 70px; 
+    bottom: 200px;
+    border: 2px solid black;
+    opacity: 0.9;
+    text-align: center;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+
+}
+
+.NumTodo-num {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.NumProjects {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    left : 656px;
+    bottom: 200px;
+    border: 2px solid black;
+    opacity: 0.9;
+    text-align: center;
+
+    padding: 0 0.5rem 0.5rem 0.5rem;
+
+}
+
+.NumProjects .NumProjects-groups {
+    text-align: center;
+    margin-top: 20%;
+}
+.SemesterProgressBar {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    right : 70px;
+    bottom: 200px;
+    border: 2px solid black;
+    opacity: 0.9;
+    text-align: center;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+
+}
+
+.SemesterProgressBar .SemesterProgressBar-value {
+    text-align: center;
+    font-weight: 300;
+}

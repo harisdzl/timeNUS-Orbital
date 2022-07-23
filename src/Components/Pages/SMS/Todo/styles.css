@@ -447,16 +447,15 @@
   
   .EditTodo {
     position: absolute;
-    bottom: 40px;
+    bottom: 213px;
     left: calc(40px + 450px + 40px);
   
     background-color: white;
   
-    height: 90%;
+    height: 70%;
     width: 450px;
-  
-    border-radius: 4px;
     opacity: 0.9;
+    border-radius: 4px;
   }
   
   .EditTodo .header {
@@ -467,4 +466,85 @@
   
     padding-bottom: 2px;
     border-bottom: 1px solid #eeeeee;
+
+  }
+  .EditTodoForm {
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    width: 450px;
+    right: 10%;
+  }
+
+  .EditTodoForm .text input {
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+  }
+  .EditTodoForm .text input:focus {
+    outline: none;
+    border-bottom: 1px solid #0080ff;
+  }
+  .EditTodoForm.remind {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .EditTodoForm p {
+    margin-left: 10px;
+  }
+  .EditTodoForm .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .EditTodoForm .pick-day {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+  }
+  .EditTodoForm .pick-time {
+    padding: 1.5rem;
+  }
+  .EditTodoForm .pick-project {
+    padding: 0.5rem;
+  }
+  .EditTodoForm .pick-project .projects {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 1rem 0 1rem;
+  }
+  .EditTodoForm .pick-project .projects .project {
+    border: 1px solid #0080ff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .EditTodoForm .pick-project .projects .active {
+    background: #0080ff;
+    color: white;
+  }
+  .EditTodoForm .cancel {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+  }
+  .EditTodoForm .confirm {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    right: 0.4px; 
+  }
+  .EditTodoForm .confirm button {
+    width: 100%;
+    height: 40px;
+    background: #0080ff;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 0 0 4px 4px;
+    cursor: pointer;
   }

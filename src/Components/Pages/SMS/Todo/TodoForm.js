@@ -39,10 +39,6 @@ const TodoForm = (
                     autoFocus
                 />
             </div>
-            <div className="remind">
-                <Bell/>
-                <p>Remind me!</p>
-            </div>
 
             <div className='pick-day'>
                 <div className='title'>

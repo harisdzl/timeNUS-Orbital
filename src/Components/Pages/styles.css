@@ -32,7 +32,6 @@ img {
 }
 
 .FullCalendar .calendar .fc-scrollgrid {
-    background: url("/public/images/timenus-logo.png");
     background-size:cover;
 }
 

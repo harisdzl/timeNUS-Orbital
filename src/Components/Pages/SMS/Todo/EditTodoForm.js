@@ -23,7 +23,7 @@ const EditTodoForm = (
 ) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <form onSubmit={handleSubmit} className='TodoForm'>
+        <form onSubmit={handleSubmit} className='EditTodoForm'>
             <div className='text'>
                 {
                     heading &&
@@ -37,10 +37,6 @@ const EditTodoForm = (
                     placeholder='To do...'
                     autoFocus
                 />
-            </div>
-            <div className="remind">
-                <Bell/>
-                <p>Remind me!</p>
             </div>
             <div className='pick-day'>
                 <div className='title'>

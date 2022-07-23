@@ -8,41 +8,46 @@ import { createUserWithEmailAndPassword,
     signInWithPopup,} 
     from "firebase/auth";
 import { auth } from "../firebase";
+import { Spinner } from "react-bootstrap";
 
 
 const userAuthContext = createContext();
 
-export function UserAuthContextProvider({ children }) {
+export const UserAuthContextProvider = ({ children }) => {
     const [user, setUser] = useState("");
-    function signUp(email, password) {
+    const [pending, setPending] = useState(true);
+
+    const signUp = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    function logIn(email, password) {
+    const logIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    function logOut() {
+    const logOut = (e) => {
         return signOut(auth);
-    }
-
-    function googleSignIn() {
-        const googleAuthProvider = new GoogleAuthProvider();
-        return signInWithPopup(auth, googleAuthProvider);
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setPending(false);
         }); 
         return () => {
             unsubscribe();
         }
     }, []);
-    return <userAuthContext.Provider value={ {user, signUp, logIn, logOut, googleSignIn } }>{ children }</userAuthContext.Provider>
+
+    if (pending) {
+        return <Spinner animation="border" role="status" className="d-flex align-items-center p-10 m-10 ml-10">
+             <span className="visually-hidden">Loading...</span>
+        </Spinner>
+    }
+    return <userAuthContext.Provider value={ {user, signUp, logIn, logOut } }>{ children }</userAuthContext.Provider>
     
 }
 
-export function useUserAuth() {
+export const useUserAuth = () => {
     return useContext(userAuthContext);
 }

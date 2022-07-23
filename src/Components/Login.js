@@ -24,15 +24,6 @@ const Login = () => {
       }
     };
 
-    const handleGoogleSignIn = async (e) => {
-        e.preventDefault();
-        try {
-            await googleSignIn();
-            navigate("/home");
-        } catch(err) {
-            setError(err.message)
-        }
-    }
     return (
       <CenteredContainer>
         <img src="/images/timenus-cropped-logo.png" alt="timeNUS logo" width="400" />
@@ -62,12 +53,8 @@ const Login = () => {
                 </Button>
               </div>
             </Form>
-            <hr />
           </div>
-          <div>
-              <GoogleButton className="g-btn" type="light" onClick={ handleGoogleSignIn }/>
-          </div>
-          <div className="p-4 box mt-3 text-center">
+          <div className="box text-center">
             Don't have an account? <Link to="/signup">Sign up</Link>
           </div>
        </CenteredContainer>
