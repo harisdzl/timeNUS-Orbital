@@ -72,7 +72,7 @@ const NavbarComponent = () => {
                                 <Nav.Link as={Link} to="/Pms" style={{ fontSize: `130%` }}>PMS</Nav.Link>
                             </Nav>
                         </Nav>
-                        <Nav className="d-grid m-1 p-2">
+                        <Nav className="d-grid m-2 p-2">
                             <Button variant = "outline-secondary" onClick={ openModal } >Profile</Button>
                         </Nav>
                         <Nav className="d-grid m-2 p-2">

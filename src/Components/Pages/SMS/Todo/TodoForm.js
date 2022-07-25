@@ -68,7 +68,7 @@ const TodoForm = (
             <div className='pick-project'>
                 <div className='title'>
                     <Palette />
-                    <p>Choose a project</p>
+                    <p>Choose a folder</p>
                 </div>
                 <div 
                     className='projects'
@@ -86,7 +86,7 @@ const TodoForm = (
                         )
                         :
                         <div style={{color:'#ff0000'}}>
-                            Please add a project before proceeding!
+                            Please add a folder before proceeding!
                         </div>
                     }
                 </div>

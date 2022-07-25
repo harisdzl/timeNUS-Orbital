@@ -11,7 +11,7 @@ const GroupForm = ({handleSubmit, heading, value, setValue, setShowModal, confir
             value={value}
             onChange={(e) => setValue(e.target.value)}
             type='text'
-            placeholder='Group name...'
+            placeholder='Group...'
             autoFocus
         />
         <button className='cancel' role='button' onClick={() => setShowModal(false)}>

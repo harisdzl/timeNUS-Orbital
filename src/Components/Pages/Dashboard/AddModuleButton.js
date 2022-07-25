@@ -36,14 +36,15 @@ const AddModuleButton = () => {
                     midterms : midterms,
                     finals : finals
                 })
+                setModule('');
+                setLecture('');
+                setTutorial('');
+                setMidterms('');
+                setFinals('');
+                closeModal()
             }
         
-        setModule('');
-        setLecture('');
-        setTutorial('');
-        setMidterms('');
-        setFinals('');
-        closeModal()
+
     }
   return (
     <div className='AddModuleButton'>

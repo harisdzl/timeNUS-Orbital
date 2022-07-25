@@ -58,14 +58,6 @@ const TodoComponent = ({todo}) => {
                 <span>({todo.date.toString()}) : {todo.time.toString()} - {todo.projectName}</span>
                 <div className={`line ${todo.checked ? 'line-through' : ''}`}></div>
             </div>
-            <div className='add-to-next-day'>
-                {
-                    todo.checked &&
-                    <span>
-                        <ArrowClockwise />
-                    </span>
-                }
-            </div>
             <div className='delete-todo' onClick={() => handleDelete(todo)}>
                 {
                     (hover || todo.checked) &&
